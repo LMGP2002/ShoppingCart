@@ -40,6 +40,8 @@ export class HomeComponent {
     if(existeSesion!=false){
       form.reset();
     }
+
+    
     
     
   }
@@ -66,7 +68,8 @@ export class HomeComponent {
 
 
   onSubmit(form:NgForm){
-    this.sendUser(form);
+
+    if(!form.invalid) this.sendUser(form);
 
   }
 
