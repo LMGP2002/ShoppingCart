@@ -1,0 +1,152 @@
+<main class="main">
+    
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-10 col-11 mx-auto">
+                <div class="row mt-5 gx-3">
+                    <!-- Left-side -->
+                    <div class="col-md-12 col-lg-8 col-11 mx-auto main_cart mb-lg-0 mb-5 shadow ">
+                        <div class="card p-4">
+                            <h2 class="py-4 font-weight-bold">Carrito ({{elementosCarrito==0 ? "No has seleccionado ningún producto" : elementosCarrito+" items"}})</h2>
+
+                            <!-- PRODUCTOS -->
+
+                            <div *ngFor="let product of products; let indice=index" class="row mb-3">
+                                 <!-- cart-images -->
+                                 <div class="col-md-5 col-11 mx-auto bg-light shadow product_img">
+
+                                    <div class="contenedor-slider d-flex justify-content-end">
+                                        
+
+                                        <!-- image-slider-start -->
+                                    <div class="slider">
+                                        <div class="slides">
+                                            <!-- image-radiobuttons-start -->
+                                            <input type="radio" name="radio-btn" id="radio1">
+                                            <input type="radio" name="radio-btn" id="radio2">
+                                            <input type="radio" name="radio-btn" id="radio3">
+    
+                                            <!-- image-radiobuttons-end -->
+                                            
+                                            
+                                            
+                                            <!-- image-start -->
+                                            
+                                            <div [attr.data-sliderimg]="product.nombre_producto" class="slide first">
+                                                <img src="{{urls[indice].fotoPrincipal}}" alt="">
+                                            </div>
+                                            <div class="slide">
+                                                <img src="{{urls[indice].fotoSecundariaU}}" alt="">
+                                            </div>
+                                            <div class="slide">
+                                                <img src="{{urls[indice].fotoSecundariaD}}" alt="">
+                                            </div>
+                                            
+                                            
+                                            <!-- image-end -->
+                                        
+                                        </div>
+                                        <!-- manual-navigation-start -->
+                                        <div class="navigation-manual">
+                                            <label [attr.data-slider]="product.nombre_producto" data-margin="0" (click)="slider($event)" for="radio1" class="manual-btn"></label>
+                                            <label [attr.data-slider]="product.nombre_producto" data-margin="-20%" (click)="slider($event)" for="radio2" class="manual-btn"></label>
+                                            <label [attr.data-slider]="product.nombre_producto" data-margin="-40%" (click)="slider($event)" for="radio3" class="manual-btn"></label>
+                                        </div>
+
+
+                                        <!-- manual-navigation-end -->
+                                    </div>
+                                    
+                                    
+                                    <!-- image-slider-end -->
+                                    </div>
+                                    
+                              
+                                </div>
+                                <!-- cart-product-details -->
+                                
+                                <div class="col-md-7 col-11 mx-auto px-4 mt-2" >
+                                    <div class="row">
+                                        <!-- product-name -->
+                                        <div class="col-6 card-title">
+                                            <h1 class="mb-4 product_name">{{product.nombre_producto}}</h1>
+                                            <p class="mb-3">{{product.descripcion}}</p>
+                                            <p class="mb-3">Prec. Unit. {{""+product.precio_unitario.toLocaleString('es-CO', {style: 'currency', currency: 'COP'})}}</p>
+                                            <a><i [attr.data-idProducto]="product.id" (click)="eliminarElementoCarrito($event)" class="eliminarProducto fa-sharp fa-solid fa-trash"></i></a>
+                                            
+                                        </div>
+                                        <!-- quantity -->
+                                        <div class="col-6">
+                                            <ul class="pagination justify-content-end set_quantity">
+                                                <li class="page-item"><button [attr.data-stock]="product.cantidad" [attr.data-precio]="product.precio_unitario" [attr.data-id]="product.nombre_producto" (click)="decreaseNumber($event)" class="page-link">-</button></li>
+                                                <li class="page-item"><input [attr.data-stock]="product.cantidad" (keypress)="validate($event)" (input)="inputPrecio($event)" [attr.data-precio]="product.precio_unitario" maxlength="3" id="{{product.nombre_producto}}" type="text"  class="page-link" value="1"></li>
+                                                <li class="page-item"><button [attr.data-stock]="product.cantidad" [attr.data-precio]="product.precio_unitario" [attr.data-id]="product.nombre_producto" (click)="increaseNumber($event)" class="page-link">+</button></li>
+                                            </ul>
+                                            <div [attr.data-divalert]="product.nombre_producto" class="alert alert-danger justify-content-end" style="display: none;" role="alert">
+                
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                <!-- price -->
+
+                                <div class="row d-flex justify-content-end">
+                                
+                                    <div class="col-4 d-flex justify-content-end price_money">
+                                        <h3><span data-cantidadcompra="1" [attr.data-spanvalor]="product.nombre_producto" id="itemval">{{""+product.precio_unitario.toLocaleString('es-CO', {style: 'currency', currency: 'COP'})}}</span></h3>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    
+                            
+                        </div>
+        
+
+                    
+                    </div>
+                    
+                    <!-- Right-side -->
+
+                    <div class="col-md-12 col-lg-4 col-11 mx-auto mt-lg-0 mt-md-5">
+                        <div class="right_side p-3 shadow bg-white">
+                            <h2 class="product_name mb-5">Detalles usuario</h2>
+                            <div class="price_indiv d-flex justify-content-between">
+                                <p>Nombre:</p>
+                                <p>{{usuario.nombre}}</p>
+                            </div>
+                            <div class="price_indiv d-flex justify-content-between">
+                                <p>Correo:</p>
+                                <p>{{usuario.correo}}</p>
+                            </div>
+                            <div class="price_indiv d-flex justify-content-between">
+                                <p>Teléfono:</p>
+                                <p>{{usuario.telefono}}</p>
+                            </div>
+                            <div class="price_indiv d-flex justify-content-between">
+                                <p>Dirección:</p>
+                                <p>{{usuario.direccion}}, {{usuario.departamento}}, {{usuario.ciudad}}</p>
+                            </div>
+                            <hr>
+                            <div class="total-amt d-flex justify-content-between font-weight-bold">
+                                <p>Total a pagar:</p>
+                                <p><span id="total_cart_amt">{{formatoMoneda}}</span></p>
+                            </div>
+
+                            <button [disabled]="habilitarCompra" (click)="msgAlert()" class="btn btn-primary ">Comprar</button>
+                        </div>
+                    </div>
+
+                    <div class="btnIrcarrito">
+                        <button routerLink="/catalog"><i class="fa-solid fa-dumbbell"></i></button>
+                    </div>
+                    
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</main>

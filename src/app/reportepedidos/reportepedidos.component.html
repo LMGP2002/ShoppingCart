@@ -1,0 +1,82 @@
+<main class="main">
+    <div class="table">
+        <div class="table-header">
+            <h1 class="title">Reporte de pedidos</h1>
+            <div>
+                <input [(ngModel)]="filtroFecha" (input)="filtrarPorFecha()" placeholder="Digite una fecha..." type="text">
+            </div>
+        </div>
+
+        <div class="table-section">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Número de pedido</th>
+                        <th>Usuario</th>
+                        <th>Total</th>
+                        <th>Productos</th>
+                    </tr>
+                   
+                </thead>
+
+                <tbody>
+                    <tr *ngFor="let pedido of pedidosFiltrados">
+                        <td>{{pedido.fecha}}</td>
+                        <td>{{pedido.id}}</td>
+                        <td>{{pedido.nombreUsuario}}</td>
+                        <td>{{pedido.valor_total.toLocaleString('es-CO', {style: 'currency', currency: 'COP'})}}</td>
+                        <td>
+                          <button class="btnVer" (click)="openPedidoModal(pedido)">Ver <i class="fa-solid fa-magnifying-glass"></i></button>
+                        </td>
+                    </tr>
+                    
+                </tbody>
+
+            </table>
+        </div>
+
+        
+
+        
+
+    </div>
+
+
+    <!-- Componente de modal -->
+<div class="custom-modal" [ngClass]="{'show': showModal}">
+    <div class="custom-modal-dialog">
+      <div class="custom-modal-content">
+        <div class="custom-modal-header">
+          <h5 class="custom-modal-title">Productos comprados</h5>
+          <button type="button" class="custom-modal-close" (click)="closeModal()">
+            <span>&times;</span>
+          </button>
+        </div>
+        <div class="custom-modal-body">
+          <table class="custom-modal-table">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Unidades compradas</th>
+                <th>Subtotal</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of selectedPedido?.productos_comprados">
+                <td>{{ item.nombreProducto}}</td>
+                <td>{{ item.cantidad_comprada }}</td>
+                <td>{{ item.valor.toLocaleString('es-CO', {style: 'currency', currency: 'COP'})}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="custom-modal-footer">
+          <button type="button" class="btn btn-primary" (click)="closeModal()">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+</main>

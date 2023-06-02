@@ -1,0 +1,39 @@
+<main class="main">
+    <section class="banner">
+        <h1>¡Conoce nuestros productos!</h1>
+    </section>
+
+    <section class="section-productos">
+        <div class="container">
+            <div class="title">
+                <h2>Nuestro Catálogo</h2>
+            </div>
+            <div class="productos">
+                <div *ngFor="let product of products; let indice=index" class="producto">
+                    <div class="img">
+                        <img [src]="this.urls[indice]" alt="">
+                    </div>
+                    <div class="namePrice">
+                        <h3>{{product.nombre_producto}}</h3>
+                        <span>{{product.precio_unitario.toLocaleString('es-CO', {style: 'currency', currency: 'COP'})}}</span>
+                    </div>
+                    <p>{{product.descripcion}}</p>
+                    <div class="cantidad">
+                        <span>Disponible {{product.cantidad}} uds.</span>
+                    </div>
+
+                    <div class="cart">
+                        <button (click)="llenarCarrito($event)" [attr.data-carritoProducto]="product.id" class="btnCarrito">Añadir al carrito</button>
+                    </div>
+                </div>
+             
+            </div>
+
+            <div class="btnIrcarrito">
+                <button routerLink="/cart"><i class="fa-solid fa-cart-shopping"></i></button>
+            </div>
+        </div>
+    </section>
+
+    
+</main>

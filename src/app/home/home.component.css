@@ -1,0 +1,139 @@
+.main{
+    display: flex;
+    justify-content: center;
+    padding: 40px 0;
+     
+}
+
+.wrapper{
+    position: fixed;
+    width: 400px;
+    height: 440px;
+    background-color: transparent;
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+    display: flex;
+    transform: scale(0);
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: transform .5s ease;
+}
+
+
+.wrapper.active-popup{
+    transform: scale(1);
+}
+
+.wrapper .form-box{
+    width: 100%;
+    padding: 40px;
+}
+
+.wrapper .icon-close{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 45px;
+    height: 45px;
+    background-color: #3d739c;
+    display: flex;
+    font-size: 1.8em;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    border-bottom-left-radius: 20px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+
+.wrapper .form-box h2{
+    font-size: 2em;
+    color: #fff;
+    text-align: center;
+}
+
+.input-box{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid #fff;
+    margin: 30px 0;
+}
+.input-box label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: #fff;
+    font-weight: 500;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.input-box input:focus~label,
+.input-box input:valid~label{
+    top: -5px;
+}
+
+.input-box input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    font-weight: 600;
+    color: #a8a8a8;
+    padding: 0 35px 0 5px;
+}
+
+.input-box span{
+    position: absolute;
+    right: 8px;
+    color: #a8a8a8;
+    line-height: 50px;
+    
+}
+
+.btn{
+    width: 100%;
+    height: 45px;
+    background-color: #3d739c;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    color: #fff;
+    font-size: 1em;
+    font-weight: 500;
+    margin-top: 30px;
+    transition: .5s;
+}
+
+.btn:hover{
+    background-color: #2d485c;
+}
+
+
+
+.textHomeContainer span{
+    color:#fff;
+    font-size: 90px;
+    font-weight: 700;
+    letter-spacing: 6px;
+}
+
+.textHomeContainer .multiText{
+    font-weight: 700;
+    color: #509eda;
+    text-transform: capitalize;
+}
+
+.alert{
+    text-align: center;
+}

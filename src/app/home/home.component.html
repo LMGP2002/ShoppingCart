@@ -1,0 +1,44 @@
+<main class="main">
+
+    <div class="textHomeContainer">
+        <span class="text first-text">Adquiere <span class="multiText"></span></span>
+        
+    </div>
+
+
+     <section class="wrapper">
+        <span class="icon-close"><i class="fa-solid fa-xmark"></i></span>
+
+        <div class="form-box login">
+            <h2>Login</h2>
+            <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
+                <div class="input-box">
+                    <span class="icon"><i class="fa-solid fa-user"></i></span>
+                    <input type="text" required
+                    id="nombre"
+                    [(ngModel)]="usuario.nombreUsuario"
+                    name="nombre"
+                    >
+                    <label>Usuario</label>
+                </div>
+
+                <div class="input-box">
+                    <span class="icon"><i class="fa-solid fa-lock"></i></span>
+                    <input type="password" required
+                    id="password"
+                    [(ngModel)]="usuario.contrasena"
+                    name="password"
+                    >
+                    <label>Contraseña</label>
+                </div>
+
+                <div *ngIf="existeSesion()" class="alert alert-danger">
+                        {{mensajeError}}
+                </div>
+
+                <button type="submit" class="btn">Ingresar</button>
+
+            </form>
+        </div>
+     </section>
+</main>

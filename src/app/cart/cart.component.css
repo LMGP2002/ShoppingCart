@@ -1,0 +1,194 @@
+
+
+*{   
+    font-family: 'Mulish', sans-serif;
+}
+
+
+
+
+main{
+    background-color: #ffffff;
+}
+
+
+:root { 
+    --text-clr: #4f4f4f; 
+} 
+
+p { 
+    color: #6c757d; 
+} 
+
+.card-title .eliminarProducto{
+    color: #d67d7d;
+    cursor: pointer;
+    font-family: "Font Awesome 6 Free";
+    font-size: 20px;
+    transition: .3s;
+
+}
+
+.card-title .eliminarProducto:hover{
+    transform: scale(1.1);
+    color: #db6b6b;
+
+}
+
+
+a { 
+    text-decoration: none; color: var(--text-clr); 
+} 
+
+a:hover { 
+    text-decoration: none; color: var(--text-clr); 
+} 
+
+h2 { 
+    color: #3d739c; 
+    font-size: 1.5rem; 
+} 
+
+.main_cart { 
+    background: #fff; 
+} 
+
+.card { 
+    border: none; 
+} 
+
+
+
+.product_name { color: black; font-size: 1.4rem; text-transform: capitalize; font-weight: 500; } 
+
+.card-title p { font-size: 0.9rem; font-weight: 500; } 
+
+
+
+.price_money h3{
+    color: #336083;
+}
+
+
+.page-link { line-height: 16px; width: 45px; font-size: 1rem; display: flex; justify-content: center; align-items: center; color: #495057; } 
+
+.page-item input { line-height: 22px; padding: 3px; font-size: 15px; display: flex; justify-content: center; align-items: center; text-align: center; } 
+
+.page-link:hover { text-decoration: none; color: #495057; outline: none !important; } 
+
+.page-link:focus { box-shadow: none; } 
+
+.price_indiv p { font-size: 1.1rem; } 
+
+
+.alert{
+    width: max-content;
+    height: max-content;
+    align-content: center;
+    font-size: .9em;
+}
+
+
+/* Slider */
+
+.contenedor-slider{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    
+}
+
+.slider{
+    width: 100%;
+    height: 200px;  
+    border-radius: 10px;
+    overflow: hidden;
+}
+.slides{
+    width: 500%;
+    height: 200px;
+    display: flex;
+}
+
+.slides input{
+    display: none;
+}
+
+.slide{
+    width: 20%;
+    transition: 2s;
+    display: flex;
+    justify-content: center;
+}
+
+.slide img{
+    width: 200px;
+    height: 200px;
+}
+
+/* manual navigation */
+
+.navigation-manual{
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    bottom: 20px;
+
+}
+
+.manual-btn{
+    border: 2px solid #999999;
+    padding: 5px;
+    border-radius: 10px;
+    cursor:pointer;
+    transition: 1s;
+}
+
+.manual-btn:not(:last-child){
+    margin-right: 5px;
+}
+
+.manual-btn:hover{
+    background-color: #d3d3d3;
+}
+
+/* botón flotante */
+.btnIrcarrito{
+    position: fixed;
+    width: max-content;
+    height: max-content;
+    bottom: 30px;
+    right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btnIrcarrito button{
+    background-color: rgb(218, 121, 97);
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    border: none;
+    transition: .3s;
+    font-size: 22px;
+}
+
+.btnIrcarrito button:hover{
+    background-color: rgb(201, 80, 71);
+    transform: scale(1.1);
+}
+
+.btnIrcarrito button i{
+    font-family: "Font Awesome 6 Free";
+}
+
+
