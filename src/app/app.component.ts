@@ -54,17 +54,17 @@ export class AppComponent implements OnInit{
   }
 
   validarUsuario(){
-    let bandera=false;
+    let flag=false;
     if(this.sesionService.enviarDatosUser()){
       let usuario =JSON.parse(this.sesionService.enviarDatosUser());
       let nomUsuario=usuario.nombre;
       if(nomUsuario!=="admin"){
-        bandera= false;
+        flag= false;
       }else{
-        bandera= true;
+        flag= true;
       }
     }
-    return bandera;
+    return flag;
      
   }
 
